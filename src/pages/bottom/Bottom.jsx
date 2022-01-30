@@ -51,7 +51,7 @@ export const Bottom = () => {
         </div>
         <div className="headers-super-container">
           <div className="headers-container0">
-            <div style={{ width: "50px" }}></div> `
+            <div style={{ width: "50px" }}></div>
             <div className="headers">
               {headersData.slice(0, 3).map((item) => (
                 <span
@@ -217,19 +217,67 @@ export const Bottom = () => {
             <td className="table-bottom-space"> </td>
             <td className="table-bottom-data-index">Total Incidencias</td>
             <td className="table-bottom-data">
-              {newData?.Comunicacion?.false}
+            {
+                newData?.Comunicacion?.false !== undefined ? 
+                  newData?.Comunicacion?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td className="table-bottom-data">
-              {newData?.Pasarela_Clima?.false}
+            {
+                newData?.Pasarela_Clima?.false !== undefined ? 
+                  newData?.Pasarela_Clima?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
-            <td className="table-bottom-data">{newData?.Alumbrado?.false}</td>
-            <td className="table-bottom-data">{newData?.Clima?.false}</td>
-            <td className="table-bottom-data">{newData?.Banderola?.false}</td>
-            <td className="table-bottom-data">{newData?.Rotulos?.false}</td>
+            <td className="table-bottom-data">{
+                newData?.Alumbrado?.false !== undefined ? 
+                  newData?.Alumbrado?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }</td>
             <td className="table-bottom-data">
-              {newData?.Consumo_Clima?.false}
+            {
+                newData?.Clima?.false !== undefined ? 
+                  newData?.Clima?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
-            <td className="table-bottom-data">{newData?.Confort?.false}</td>
+            <td className="table-bottom-data">
+            {
+                newData?.Banderola?.false !== undefined ? 
+                  newData?.Banderola?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
+            <td className="table-bottom-data">
+            {
+                newData?.Rotulos?.false !== undefined ? 
+                  newData?.Rotulos?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
+            <td className="table-bottom-data">
+            {
+                newData?.Consumo_Clima?.false !== undefined ? 
+                  newData?.Consumo_Clima?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
+            <td className="table-bottom-data">
+            {
+                newData?.Confort?.false !== undefined ? 
+                  newData?.Confort?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
             <td className="table-bottom-data-space"> </td>
             <td className="table-bottom-data-space-big"> </td>
           </tr>
@@ -237,20 +285,68 @@ export const Bottom = () => {
             <td className="table-bottom-space"> </td>
             <td className="table-bottom-data-index">Total Stores</td>
             <td className="table-bottom-data">
-              {newData?.Comunicacion?.true + newData?.Comunicacion?.false}
+              {
+                newData?.Comunicacion?.true !== undefined ? 
+                  newData?.Comunicacion?.true + newData?.Comunicacion?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td className="table-bottom-data">
-              {newData?.Pasarela_Clima?.true + newData?.Pasarela_Clima?.false}
-            </td>
-            <td className="table-bottom-data">{newData?.Alumbrado?.true+newData?.Alumbrado?.false}</td>
-            <td className="table-bottom-data">{newData?.Clima?.true+newData?.Clima?.false}</td>
-            <td className="table-bottom-data">{newData?.Banderola?.true+newData?.Banderola?.false}</td>
-            <td className="table-bottom-data">{newData?.Rotulos?.true+newData?.Rotulos?.false}</td>
-            <td className="table-bottom-data">
-              {newData?.Consumo_Clima?.true + newData?.Consumo_Clima?.false}
+              {
+                newData?.Pasarela_Clima?.true !== undefined ? 
+                  newData?.Pasarela_Clima?.true + newData?.Pasarela_Clima?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td className="table-bottom-data">
-              {newData?.Confort?.true + newData?.Confort?.false}
+              {
+                newData?.Alumbrado?.true !== undefined ? 
+                  newData?.Alumbrado?.true + newData?.Alumbrado?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
+            <td className="table-bottom-data">
+              {
+                newData?.Clima?.true !== undefined ? 
+                  newData?.Clima?.true + newData?.Clima?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
+            <td className="table-bottom-data">
+              {
+                newData?.Banderola?.true !==  undefined ? 
+                  newData?.Banderola?.true + newData?.Banderola?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
+            <td className="table-bottom-data">
+              {
+                newData?.Rotulos?.true !==  undefined ? 
+                  newData?.Rotulos?.true + newData?.Rotulos?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
+            <td className="table-bottom-data">
+              {
+                newData?.Consumo_Clima?.true !== undefined ? 
+                  newData?.Consumo_Clima?.true + newData?.Consumo_Clima?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
+            </td>
+            <td className="table-bottom-data">
+              {
+                newData?.Confort?.true !== undefined ? 
+                  newData?.Confort?.true + newData?.Confort?.false
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td className="table-bottom-data-space"> </td>
             <td className="table-bottom-data-space-big"> </td>
@@ -264,7 +360,12 @@ export const Bottom = () => {
                 backgroundColor: `rgba(255, 99, 71, ${newData?.Comunicacion?.percent})`,
               }}
             >
-              {newData?.Comunicacion?.percent}%
+              {
+                newData?.Comunicacion?.percent !== undefined ? 
+                  `${newData?.Comunicacion?.percent}%`
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td
               className="table-bottom-data"
@@ -272,7 +373,12 @@ export const Bottom = () => {
                 backgroundColor: `rgba(255, 99, 71, ${newData?.Pasarela_Clima?.percent})`,
               }}
             >
-              {newData?.Pasarela_Clima?.percent}%
+              {
+                newData?.Pasarela_Clima?.percent !== undefined ? 
+                  `${newData?.Pasarela_Clima?.percent}%`
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td
               className="table-bottom-data"
@@ -280,7 +386,12 @@ export const Bottom = () => {
                 backgroundColor: `rgba(255, 99, 71, ${newData?.Alumbrado?.percent})`,
               }}
             >
-              {newData?.Alumbrado?.percent}%
+              {
+                newData?.Alumbrado?.percent !== undefined ? 
+                  `${newData?.Alumbrado?.percent}%`
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td
               className="table-bottom-data"
@@ -288,7 +399,12 @@ export const Bottom = () => {
                 backgroundColor: `rgba(255, 99, 71, ${newData?.Clima?.percent})`,
               }}
             >
-              {newData?.Clima?.percent}%
+              {
+                newData?.Clima?.percent !== undefined ? 
+                  `${newData?.Clima?.percent}%`
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td
               className="table-bottom-data"
@@ -296,7 +412,12 @@ export const Bottom = () => {
                 backgroundColor: `rgba(255, 99, 71, ${newData?.Banderola?.percent})`,
               }}
             >
-              {newData?.Banderola?.percent}%
+              {
+                newData?.Banderola?.percent !== undefined ? 
+                  `${newData?.Banderola?.percent}%`
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td
               className="table-bottom-data"
@@ -304,7 +425,12 @@ export const Bottom = () => {
                 backgroundColor: `rgba(255, 99, 71, ${newData?.Rotulos?.percent})`,
               }}
             >
-              {newData?.Rotulos?.percent}%
+              {
+                newData?.Rotulos?.percent !== undefined ? 
+                  `${newData?.Rotulos?.percent}%`
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td
               className="table-bottom-data"
@@ -312,7 +438,12 @@ export const Bottom = () => {
                 backgroundColor: `rgba(255, 99, 71, ${newData?.Consumo_Clima?.percent})`,
               }}
             >
-              {newData?.Consumo_Clima?.percent}%
+              {
+                newData?.Consumo_Clima?.percent !== undefined ? 
+                  `${newData?.Consumo_Clima?.percent}%`
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td
               className="table-bottom-data"
@@ -320,7 +451,12 @@ export const Bottom = () => {
                 backgroundColor: `rgba(255, 99, 71, ${newData?.Confort?.percent})`,
               }}
             >
-              {newData?.Confort?.percent}%
+              {
+                newData?.Confort?.percent !== undefined ? 
+                  `${newData?.Confort?.percent}%`
+                :
+                  <Dots steps={3} size={3}/>
+              }
             </td>
             <td className="table-bottom-data-space"> </td>
             <td className="table-bottom-data-space-big"> </td>
