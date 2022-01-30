@@ -5,7 +5,7 @@ const urlParams = new URLSearchParams(window.location.search);
 // const session_id = urlParams.get("session_id");
 const headers = {
   "X-Dep-ID": 5679,
-  "X-Session-ID": "153d382cf41e55ad480aaeeb521e37bce1ece85e41c57ee8c4af02ff011c2f1f",
+  "X-Session-ID": "827bce60fcd4329f9bcd55f2e4c8aa2c74abe0e1660a6742dd2949bfa8066901",
 };
 const get = async (path) => {
   const response = await axios.get(`${baseUrl}${path}/`, { headers });

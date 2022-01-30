@@ -5,7 +5,6 @@ import { Dots } from '@dexma/ui-components'
 import { colorScale, sortInfo, headersData, sortHeaders } from "../../utils/";
 import "./bottom.css";
 import "./headersWidths.css";
-import { dummyData } from '../../utils/dummyData'
 import { ExcelTable } from "../../utils/exelData";
 
 
@@ -23,7 +22,7 @@ export const Bottom = () => {
     "Confort",
   ]);
 
-  const [dataSort, setDataSort] = useState(dummyData);
+  const [dataSort, setDataSort] = useState(data);
   useEffect(() => {
     api.getDataTable().then((res) => setData(res.table));
   }, []);
@@ -42,8 +41,8 @@ export const Bottom = () => {
         <div className="headers-top">
           <span className="span-estado-store">Estados por store</span>
           {dataSort.length !== 0 ?
-            <span style={{ cursor: 'pointer' }} onClick={ExcelTable(dummyData)}>...</span>
-            : <span style={{ cursor: 'pointer' }} onClick={ExcelTable(dummyData)}>...</span>}
+            <span style={{ cursor: 'pointer' }} onClick={ExcelTable(data)}>...</span>
+            : <div style={{ width: '20px' }}><Dots steps='3' size='3' /></div>}
         </div>
         <div className="headers-super-container">
           <div className="headers-container0">
