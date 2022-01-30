@@ -16,7 +16,7 @@ export const sortInfo = (array1, array2) => {
     percent =
       falseCount === 0 && trueCount === 0
         ? 0
-        : (falseCount / (falseCount + trueCount)).toFixed(1);
+        : ((falseCount)/ (falseCount + trueCount)*100).toFixed(1);
     sortData[incident] = {
       false: falseCount,
       true: trueCount,
