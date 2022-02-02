@@ -9,7 +9,14 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  height: 80px;
   width: 150px;
+}
+.widget-top-labels{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 .widget-tag{
     color: #404145;

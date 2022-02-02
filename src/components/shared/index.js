@@ -1,1 +1,1 @@
-export {Dot} from './dot/Dot'
+export {Dot} from './Dot/Dot'
