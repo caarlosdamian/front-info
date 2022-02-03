@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@dexma/ui-components": "^4.8.0",
+    "@material-ui/core": "^4.12.3",
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

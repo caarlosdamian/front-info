@@ -1,21 +1,5 @@
 import * as R from 'ramda'
-import XLSX from 'xlsx';
-
-export const ExcelTable = (data, top) => {
-
-    const topTag = () => top[0].length !== 0
-        ? top[0].map((tag, i) => top.map((row, j) =>
-            j % 6 === 0
-                ? tag
-                : i === 0
-                    ? top[j]
-                    : ''
-        ))
-        : [top]
-
-    const widgetsArray = ['Location tags', 'Localizaciones', 'Tags no seleccionados',
-        'Stores sin comunicacion', 'Incidencias', 'Stores con incidencias']
-
+export const bottomTable = (data) => {
     const incidentsDataReduce = data?.map(item =>
         R.values(R.pick(
             [
@@ -54,31 +38,5 @@ export const ExcelTable = (data, top) => {
     const inciArray = ['Total Incidencias', 'Total Stores', '% Incidencias',]
     const excelArray = R.zip(inciArray, [R.flatten(['', '', totalInci, '', '', '', '']), R.flatten(['', '', totalScore, '', '', '', '']), R.flatten(['', '', finalPercentage, '', '', '', ''])])
     const superExcelArray = excelArray.map(arr => R.flatten(arr))
-
-
-    const headersArray = Object.keys(data[0])
-    const superDummy = data?.map(data => R.values(data))
-
-    const tabla = [widgetsArray]
-        .concat(topTag())
-        .concat(['', ''])
-        .concat([headersArray])
-        .concat(superDummy)
-        .concat(['', ''])
-        .concat(superExcelArray)
-
-    const downloadExcel = () => {
-        const newData = tabla?.map(row => {
-            delete row.tableData
-            return row
-        })
-
-        const workSheet = XLSX.utils.aoa_to_sheet(newData)
-        const workBook = XLSX.utils.book_new()
-
-        XLSX.utils.book_append_sheet(workBook, workSheet, "dashboard")
-        XLSX.write(workBook, { bookType: "xlsx", type: "binary" })
-        XLSX.writeFile(workBook, "dashboard.xlsx")
-    }
-    return downloadExcel
+    return superExcelArray
 }
