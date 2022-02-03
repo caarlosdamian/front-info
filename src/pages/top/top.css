@@ -1,17 +1,5 @@
 .top {
-    /* column-gap: 7.75px; */
-    /* display: grid; */
-    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
-    /* height: 155px; */
-    /* width: 1550px; */
-    /* justify-content: center;
-    align-items: center; */
-    /* display: flex; */
-    margin-bottom: 20px;
-    background-color: rgb(117, 94, 94);
-    width: 94%;
-    height: 100%;
-
+    width: 100%;
 }
 
 /* .store-with-dot {

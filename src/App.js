@@ -23,11 +23,9 @@ function App() {
       .then(({ total_locations }) => dispatch(SET_LOCATIONS(total_locations)));
   }, [dispatch]);
 
-
-
   return (
     <div className="App">
-      {/* <Top /> */}
+      <Top />
       <div className="line"> </div>
 
       <BottomGrid />
