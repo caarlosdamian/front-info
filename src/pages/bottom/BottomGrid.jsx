@@ -62,7 +62,6 @@ export const BottomGrid = () => {
         return item.map((row, a) => {
             return <div
                 style={{
-
                     backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}`,
                     display: 'flex',
                     justifyContent: 'center',
@@ -72,7 +71,6 @@ export const BottomGrid = () => {
                 }}>
 
                 <div className="table-data"
-
                 >
                     {row === true
                         ? <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: 'red' }}>{a}</div>
@@ -101,7 +99,7 @@ export const BottomGrid = () => {
                         ...
                     </span>
                 </div>
-                <div className=''
+                <div className='headers'
                     style={{
                         display: 'grid',
                         gridTemplateColumns: ' repeat(15, minmax(2rem, 1fr)) 20px',
@@ -114,27 +112,27 @@ export const BottomGrid = () => {
                         {info}
                     </div>
                 </div>
-                <div style={{ paddingRight: '20px' }}>
-                    <div className=''
+                {/* `8rem  repeat(${roomMonthNumber.length -
+              2}, minmax(16rem, 1fr)  ) 8rem`, */}
+
+                <div className=" bottom-bottom-grid">
+                    <div
                         style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(15, minmax(2rem, 1fr))',
                         }}
                     >
-                        {bottomTable(newTableAllProps).map((column, i) => column.map(row => <div
-                            style={{
-                                boxSizing: 'border-box',
+                        {bottomTable(newTableAllProps).map((column, i) => column.map(row =>
+                            <div style={{
                                 backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}`,
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                borderTop: '1px solid #dee0e2',
-                                height: '40px',
-                            }}
-                        ><div className="table-data">
-                                {row}
-                            </div>
-                        </div>))}
+                                gridColumn: `${i === 0 ? 'span 2' : 'span 1'}`,
+
+                            }}>
+                                <div className="table-data">
+                                    {row}
+                                </div>
+                            </div>))
+                        }
                     </div>
                 </div>
             </div>

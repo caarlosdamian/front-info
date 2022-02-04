@@ -5,6 +5,7 @@ import "./App.css";
 // import { Bottom } from "./pages/bottom/Bottom";
 import { BottomGrid } from "./pages/bottom/BottomGrid";
 import { Top } from "./pages/top/Top";
+import { GridContainer } from "./components/grid-container/GridContainer";
 import { SET_TABLE, SET_LOCATIONS, SET_TAGS } from "./redux/tableSlice/TableSlice";
 
 function App() {
@@ -25,10 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <Top />
-      <div className="line"> </div>
-
-      <BottomGrid />
+      <GridContainer />
     </div>
   );
 }
