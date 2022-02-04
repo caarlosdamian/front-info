@@ -1,22 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { DotTable } from "../../components/shared/dotTable/DotTable";
 import { Dots } from "@dexma/ui-components";
-import { colorScale, sortInfo, headersData, sortHeaders } from "../../utils/";
-// import "./bottom.css";
+import { colorScale, sortInfo, headersData } from "../../utils/";
 import * as R from "ramda";
 import { Dot } from '../../components/shared/dot/Dot'
 import "./headersWidths.css";
 import { ExcelTable } from "../../utils/exelData";
 import { useSelector } from "react-redux";
 import { dummyData } from "../../utils/dummyData";
-import { superExcelArray } from '../../utils/exelData'
 import './bootomGrid.css'
 import { bottomTable } from "../../utils/bottomData";
-import { Top } from '../top/Top'
-console.log(bottomTable(dummyData))
-const even = (n) => {
-    return n % 2 === 0;
-}
+
+
+const even = (n) => n % 2 === 0;
 
 export const BottomGrid = () => {
     const { table, incidents,
@@ -44,12 +40,8 @@ export const BottomGrid = () => {
     useEffect(() => {
         table?.length !== 0 && setDataSort(table);
     }, [table]);
-
-
-    const newTableAllProps = table.map(item => ({ ...item, "a": 1, 'b': 2, 'c': 3, 'd': 4 }))
-
-
-    console.log(newTableAllProps)
+    console.log(table)
+    const newTableAllProps = table?.map(item => ({ ...item, "a": 1, 'b': 2, 'c': 3, 'd': 4 }))
     const tableData = R.map(table => R.values(table), dummyData)
     const headers = headersData.map(header => {
         return <div
@@ -60,16 +52,8 @@ export const BottomGrid = () => {
 
     const info = tableData.map((item, i) => {
         return item.map((row, a) => {
-            return <div
-                style={{
-                    backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}`,
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderTop: '1px solid #dee0e2',
-                    height: '40px',
-                }}>
-
+            return <div className="table-info"
+                style={{ backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}` }}>
                 <div className="table-data"
                 >
                     {row === true
@@ -102,38 +86,75 @@ export const BottomGrid = () => {
                 <div className='headers'
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: ' repeat(15, minmax(2rem, 1fr)) 20px',
+                        gridTemplateColumns: 'repeat(15, minmax(2rem, 1fr)) 20px',
                     }}
                 >
                     {headers}
                 </div>
+
+
                 <div className="table-container">
-                    <div className='grid-container'>
-                        {info}
-                    </div>
+                    {table?.length !== 0
+                        ? <div className='grid-container'>
+                            {info}
+                        </div>
+                        : <div className="loading-container">
+                            <Dots steps="3" size="5" />
+                        </div>}
+
+
+
+
                 </div>
-                {/* `8rem  repeat(${roomMonthNumber.length -
-              2}, minmax(16rem, 1fr)  ) 8rem`, */}
+
+
 
                 <div className=" bottom-bottom-grid">
-                    <div
-                        style={{
+                    {table?.length !== 0
+                        ? <div style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(15, minmax(2rem, 1fr))',
-                        }}
-                    >
-                        {bottomTable(newTableAllProps).map((column, i) => column.map(row =>
-                            <div style={{
-                                backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}`,
-                                // gridColumn: `${i === 0 ? 'span 2' : 'span 1'}`,
+                        }}>
 
-                            }}>
-                                <div className="table-data">
-                                    {row}
-                                </div>
-                            </div>))
-                        }
-                    </div>
+                            {/* <div style={{ gridColumn: '1 / span 2', backgroundColor: 'yellow', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div>
+                            <div style={{ gridColumn: '1 / span 2', backgroundColor: 'yellow', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div>
+                            <div style={{ gridColumn: '1 / span 2', backgroundColor: 'yellow', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div>
+                            <div style={{ backgroundColor: 'skyblue', border: '1px solid black' }}>hola</div> */}
+
+
+
+
+
+
+
+                            {
+                                bottomTable(newTableAllProps).map((column, i) => column.map((row, j) => {
+                                    console.log(row)
+                                    return <div style={{
+                                        // border: '1px solid black',
+                                        backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}`,
+                                        gridColumn: `${row === 'Total Incidencias' ||
+                                            row === 'Total Stores' ||
+                                            row === '% Incidencias' ? '1 / span 3' : ''}`,
+
+                                    }}>
+                                        <div className="table-data">
+                                            {row}
+                                        </div>
+                                    </div>
+                                }))
+                            }
+                        </div> : <div className="loading-container">
+                            <Dots steps="3" size="5" />
+                        </div>}
                 </div>
             </div>
         </div>

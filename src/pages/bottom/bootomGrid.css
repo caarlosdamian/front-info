@@ -33,6 +33,14 @@
     /* justify-content: flex-start; */
 }
 
+.top-bottom {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
 .headers-top {
     display: flex;
     align-items: center;
@@ -70,7 +78,14 @@
     font-size: 14px;
     height: 40px;
     border-top: 1px solid #dee0e2;
+}
 
+.table-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #dee0e2;
+    height: '40px',
 
 }
 
@@ -79,6 +94,13 @@
     overflow-x: auto;
     overflow-y: auto;
     width: 100%;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 465px;
 }
 
 .headers {
@@ -98,7 +120,8 @@
 }
 
 .bottom-bottom-grid {
-
+    box-sizing: border-box;
     width: 100%;
+    padding-right: 20px;
 
 }

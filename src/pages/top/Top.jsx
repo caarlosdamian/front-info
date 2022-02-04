@@ -24,7 +24,7 @@ export const Top = () => {
 
   const widgetsData = [
     ['Localizaciones', locations],
-    ['', 'tags'],
+    ['tags', 'tags'],
     ['Store sin comunicacion', storesComunication],
     ['Incidencias', storeIncidents],
     ['Store con incidencias', storesWithoutIncidents]
