@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { DotTable } from "../../components/shared/dotTable/DotTable";
 import { Dots } from "@dexma/ui-components";
 import { colorScale, sortInfo, headersData, sortHeaders } from "../../utils/";
-import "./bottom.css";
+// import "./bottom.css";
 import * as R from "ramda";
 import { Dot } from '../../components/shared/dot/Dot'
 import "./headersWidths.css";
@@ -125,7 +125,7 @@ export const BottomGrid = () => {
                         {bottomTable(newTableAllProps).map((column, i) => column.map(row =>
                             <div style={{
                                 backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}`,
-                                gridColumn: `${i === 0 ? 'span 2' : 'span 1'}`,
+                                // gridColumn: `${i === 0 ? 'span 2' : 'span 1'}`,
 
                             }}>
                                 <div className="table-data">
