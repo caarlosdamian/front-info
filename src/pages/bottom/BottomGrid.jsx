@@ -73,9 +73,9 @@ export const BottomGrid = () => {
                 <div className="table-data"
                 >
                     {row === true
-                        ? <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: 'red' }}>{a}</div>
+                        ? <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: '#F25A5A' }}> </div>
                         : row === false
-                            ? <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: 'green' }}>{row}</div>
+                            ? <div style={{ width: '16px', height: '16px', borderRadius: '50%', backgroundColor: '#00CC87' }}> </div>
                             : row
                     }
                 </div>
