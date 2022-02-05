@@ -32,30 +32,52 @@ export const Top = () => {
 
   const widgets = widgetsData.map((widget, index) => {
     return (
-      <Widget>
-        <div className="widget-left">
-          {widget !== null || undefined ? (
-            <span className="widget-number">{widget[1]}</span>
-          ) : (
-            <Dots steps={3} size={6} />
-          )}
-          <span className="widget-label">{widget[0]}</span>
-        </div>
-      </Widget>
+      <>
+        {widget[0] === 'Store sin comunicacion' || widget[0] === 'Incidencias'
+
+          ? < Widget >
+            <div className="store-with-dot">
+              {storeIncidents !== null || undefined ? (
+                <div className="top-label">
+                  <Dot
+                    style={{
+                      backgroundColor: "#F25A5A",
+                      width: "16px",
+                      height: "16px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                  <span className="widget-number">{widget[1]}</span>
+                </div>
+              ) : (
+                <Dots steps={3} size={6} />
+              )}
+              <span className="widget-label">{widget[0]}</span>
+            </div >
+          </Widget>
+
+          : < Widget >
+            <div className="widget-left">
+              {storeIncidents !== null || undefined ? (
+                <span className="widget-number">{widget[1]}</span>
+              ) : (
+                <Dots steps={3} size={6} />
+              )}
+              <span className="widget-label">{widget[0]}</span>
+            </div>
+          </Widget>}
+      </>
+
     )
   })
 
 
   return (
-    <div className="top">
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: ' repeat(5, minmax(5rem, 1fr))',
-        gap: '10px',
-      }}>
+    <div className="top-container">
+      <div className="top">
         {widgets}
       </div>
-    </div>
+    </div >
   )
 }
   // <div className="top">

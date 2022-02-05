@@ -1,9 +1,22 @@
-.top {
-    width: 92%;
+@font-face {
+    font-family: "SFProText-Regular";
+    src: local("SFProText-Regular"),
+        url("../../fonts/SFProText-Regular.ttf") format("truetype");
+}
+
+
+.top-container {
+    width: 100%;
     margin-bottom: 10px;
 }
 
-/* .store-with-dot {
+.top {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(5rem, 1fr));
+    gap: 10px;
+}
+
+.store-with-dot {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -19,11 +32,23 @@
 .loading {
     width: 30px;
     height: 30px;
-} */
+}
 
-/* 
-@media (max-width: 1000px) {
-    .top {
+.widget-label {
+    font-family: "SFProText-Regular";
+    font-size: 12px;
+
+}
+
+.widget-number {
+    font-family: "SFProText-Regular";
+    font-size: 3rem;
+
+}
+
+
+@media (max-width: 700px) {
+    /* .top {
         width: 100%;
         height: 144px;
         gap: 20px;
@@ -32,5 +57,17 @@
         align-items: center;
         flex-direction: column;
         height: 800px;
+    } */
+
+    .widget-label {
+        font-family: "SFProText-Regular";
+        font-size: 11px;
+
     }
-} */
+
+    .widget-number {
+        font-family: "SFProText-Regular";
+        font-size: 20px;
+
+    }
+}

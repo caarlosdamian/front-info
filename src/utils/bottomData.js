@@ -37,7 +37,7 @@ export const bottomTable = (data) => {
     const finalPercentage = percentage.map(p => p === 'NaN' ? 0 : p)
     const inciArray = ['Total Incidencias', 'Total Stores', '% Incidencias',]
     const excelArray = R.zip(inciArray, [R.flatten([totalInci, '', '', '', '']), R.flatten([totalScore, '', '', '', '']), R.flatten([finalPercentage, '', '', '', ''])])
-    console.log(excelArray)
+
     const superExcelArray = excelArray.map(arr => R.flatten(arr))
     return superExcelArray
 }

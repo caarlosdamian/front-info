@@ -4,6 +4,8 @@
   padding: 30px;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .line {
