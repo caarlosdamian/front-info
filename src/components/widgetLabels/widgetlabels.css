@@ -1,9 +1,16 @@
 .widget-label-container {
   font-family: "SFProText-Regular";
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  /* height: 50px; */
+
+}
+
+.labels {
+  height: 100%;
 }
 
 .widget-top {
@@ -11,22 +18,21 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  height: 80px;
-  width: 150px;
+  height: 80%;
+  width: 50%;
 }
 
-.widget-top-labels {
+.widget-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   font-family: "SFProText-Regular";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  height: 70px;
 }
 
 .widget-tag {
   font-family: "SFProText-Regular";
-
   color: #404145;
+
   background-color: #F7F9FA;
 }
 
@@ -43,4 +49,72 @@
 
 .widget-dots:hover {
   cursor: pointer;
+}
+
+@media (max-width: 1300px) {
+  .widget-tag {
+    font-family: "SFProText-Regular";
+    color: #404145;
+    background-color: #F7F9FA;
+    font-size: 10px;
+    width: 1.5rem;
+    align-items: center;
+  }
+
+  .widget-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 60%;
+  }
+}
+
+
+@media (max-width: 870px) {
+  .widget-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "SFProText-Regular";
+    color: #404145;
+    background-color: #F7F9FA;
+    font-size: 9px;
+    width: 1rem;
+    align-items: center;
+  }
+
+  .widget-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 90%;
+  }
+}
+
+
+@media (max-width: 520px) {
+  .widget-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "SFProText-Regular";
+    color: #404145;
+    background-color: #F7F9FA;
+    font-size: 8px;
+    width: 1rem;
+    align-items: center;
+  }
+
+  .widget-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 100%;
+  }
 }

@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 155px;
   background-color: white;
   border-radius: 10px;
@@ -21,6 +20,7 @@
   font-size: 72px;
   line-height: 115%;
   display: flex;
+  justify-content: center;
   flex-wrap: nowrap;
 }
 

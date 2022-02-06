@@ -2,10 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { api } from "./api/api";
 import "./App.css";
-// import { Bottom } from "./pages/bottom/Bottom";
-import { BottomGrid } from "./pages/bottom/BottomGrid";
-import { Top } from "./pages/top/Top";
-import { GridContainer } from "./components/grid-container/GridContainer";
+import { DashboardContainer } from "./components/grid-container/DashboardContainer";
 import { SET_TABLE, SET_LOCATIONS, SET_TAGS } from "./redux/tableSlice/TableSlice";
 
 function App() {
@@ -26,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <GridContainer />
+      <DashboardContainer />
     </div>
   );
 }
