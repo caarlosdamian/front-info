@@ -22,7 +22,7 @@ const initialState = {
     ],
   },
   total_locations: null,
-  location_tags: ['hola', 'queddd', 'tals', 'holadd', 'que ', 'tal', 'holadd', 'que ', 'tal'],
+  location_tags: ['hola', 'queddd', 'tals', 'hola', 'queddd', 'tals', 'mamam'],
   dropdown_tagss: false
 };
 

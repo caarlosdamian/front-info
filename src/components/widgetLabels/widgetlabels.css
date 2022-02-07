@@ -20,8 +20,9 @@
 }
 
 .widget-grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   font-family: "SFProText-Regular";
   height: 70px;
 }
@@ -50,6 +51,7 @@
 }
 
 .widget-dots {
+
   align-items: center;
   border-radius: 50%;
   border: 1px solid rgb(222, 224, 226);
@@ -58,6 +60,7 @@
   justify-content: center;
   width: 20px;
   margin: .2rem;
+  text-align: center;
 }
 
 .widget-dots:hover {

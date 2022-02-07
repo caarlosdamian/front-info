@@ -56,16 +56,28 @@ export const Top = () => {
             </div >
           </Widget>
 
-          : < Widget >
-            <div className="widget-left">
-              {storeIncidents !== null || undefined ? (
-                <span className="widget-number">{widget[1]}</span>
-              ) : (
-                <Dots steps={3} size={6} />
-              )}
-              <span className="widget-label">{widget[0]}</span>
-            </div>
-          </Widget>}
+          : widget[0] === 'Tags Seleccionadas' ?
+            < Widget >
+              <div className="widget-left">
+                {storeIncidents !== null || undefined ? (
+                  <span className="widget-tags-top">{widget[1]}</span>
+                ) : (
+                  <Dots steps={3} size={6} />
+                )}
+                <span className="widget-label">{widget[0]}</span>
+              </div>
+            </Widget> :
+
+            < Widget >
+              <div className="widget-left">
+                {storeIncidents !== null || undefined ? (
+                  <span className="widget-number">{widget[1]}</span>
+                ) : (
+                  <Dots steps={3} size={6} />
+                )}
+                <span className="widget-label">{widget[0]}</span>
+              </div>
+            </Widget>}
       </>
 
     )

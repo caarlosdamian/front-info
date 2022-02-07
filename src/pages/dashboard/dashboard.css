@@ -4,19 +4,22 @@
         url("../../fonts/SFProText-Regular.ttf") format("truetype");
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(15, minmax(30px, 1fr));
-}
-
 .grid-container-headers {
     display: grid;
     grid-template-columns: repeat(15, minmax(30px, 1fr));
+    column-gap: 1px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(15, minmax(30px, 1fr));
+    column-gap: 1px;
 }
 
 .bottom-grid-container {
     display: grid;
     grid-template-columns: repeat(15, minmax(30px, 1fr));
+    column-gap: 1px;
 }
 
 .dashboad-container {
@@ -59,6 +62,7 @@
     font-family: "SFProText-Regular";
     height: 20px;
     padding-left: 20px;
+    padding-right: 15px;
     margin-top: 20px;
     line-height: 20px;
     font-weight: 600;
@@ -82,25 +86,44 @@
     font-family: 'SFProText-Regular' !important;
     font-size: 12px;
     height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #dee0e2;
+    border-right: 1px solid white;
+    border-top: 1px solid #dee0e2;
+    box-sizing: border-box;
 
 }
 
-.table-data-bottom-headers {
+.table-data-colors {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     font-family: 'SFProText-Regular' !important;
-    font-size: 14px;
+    font-size: 12px;
     height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #dee0e2;
+    border-right: 1px solid white;
+    border-top: 1px solid #dee0e2;
+
+    box-sizing: border-box;
+
 
 }
 
 .table-info {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: '40px';
+    box-sizing: border-box; */
+
+}
+
+.table-and-loading-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: '40px',
-
 }
 
 .table-container {
@@ -118,7 +141,6 @@
 
 .headers {
     display: flex;
-
     justify-content: center;
     align-items: center;
     font-family: 'SFProText-Regular' !important;
@@ -162,17 +184,41 @@
     flex-direction: column;
     overflow-x: hidden;
     scrollbar-width: 5px;
-    width: 100%;
+    width: 98%;
 
 }
-
 
 .bottom-bottom-grid {
     box-sizing: border-box;
     width: 100%;
-    padding-right: 20px;
+    margin-left: 30px;
     margin-top: 10px;
+    padding-right: 50px;
 
+}
+
+.table-data-bottom-headers {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: 'SFProText-Regular' !important;
+    font-size: 14px;
+    height: 40px;
+    border-bottom: 1px solid #dee0e2;
+    border-right: 1px solid white;
+    border-top: 1px solid #dee0e2;
+}
+
+.table-data-bottom-headers2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'SFProText-Regular' !important;
+    font-size: 14px;
+    height: 40px;
+    border-bottom: 1px solid #dee0e2;
+    border-right: 1px solid white;
+    border-top: 1px solid #dee0e2;
 }
 
 .bottom-bottom-grid-headers {
@@ -181,6 +227,9 @@
     box-sizing: 'border-box';
     padding-left: 16px;
     grid-column: 1 / span 3;
+    /* border-bottom: 1px solid #dee0e2; */
+
+
 }
 
 
@@ -204,7 +253,7 @@
         font-family: 'SFProText-Regular' !important;
         font-size: 10px;
         color: black;
-        border-right: 2px solid #1077dd;
+
         height: 40px;
         width: 100%;
     }
@@ -245,7 +294,7 @@
         background-color: white;
         font-size: 9px;
         color: black;
-        border-right: 1px solid rgb(241, 203, 203);
+
         height: 40px;
         width: 100%;
 
@@ -291,7 +340,7 @@
             font-size: 9px;
             color: black;
             border-bottom: 1px solid #dee0e2;
-            border-right: 1px solid rgb(235, 15, 15);
+
             border-top: 1px solid #dee0e2;
             height: 40px;
             width: 100%;
@@ -312,13 +361,7 @@
             width: 100%;
         }
 
-        .headers-magic {
-            display: flex;
-            flex-direction: column;
-            overflow-x: scroll;
-            scrollbar-width: thin;
-            width: 100%;
-        }
+
 
         .table-data-bottom-headers {
             display: flex;
@@ -332,10 +375,36 @@
     }
 }
 
-@media(max-width: 400px) {
-    .table-container {
-        height: 200px;
 
+
+
+
+@media(max-width: 520px) {
+    .table-container {
+        height: 150px;
+
+    }
+
+    .headers-magic {
+        display: flex;
+        flex-direction: column;
+        overflow-x: scroll;
+        scrollbar-width: 5px;
+        width: 100%;
+
+    }
+
+    .span-estado-store {
+        display: flex;
+        font-family: "SFProText-Regular";
+        height: 20px;
+        padding-left: 20px;
+        margin-top: 20px;
+        line-height: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        font-size: 14px;
+        cursor: pointer;
     }
 
 }

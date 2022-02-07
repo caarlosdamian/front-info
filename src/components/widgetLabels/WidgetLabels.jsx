@@ -7,22 +7,21 @@ import { useSelector } from "react-redux";
 export const WidgetLabels = () => {
 
   const { location_tags } = useSelector((state) => state.table);
-  const [toasts, setToast] = useState([]);
   const [toggle, setToggle] = useState(false);
 
-
-  useEffect(() => {
-    setToast(location_tags);
-  }, [location_tags]);
 
   const handleToggle = (e) => {
     e.stopPropagation();
     setToggle(!toggle);
   };
-  const labels = location_tags?.slice(0, 7).map((toast, i) => (
-    <div className="tag">{toast}</div>
-    // <Tag key={i} >{toast}</Tag>
-  )).concat(<div className="widget-dots" onClick={handleToggle}></div>)
+
+
+  const labels = location_tags.length >= 7 ? location_tags.map(tag =>
+    <div className="tag">{tag}</div>
+  ).concat([<div className="widget-dots" onClick={handleToggle}>
+    <Dots steps={3} size={2} />
+  </div>]) : location_tags?.map(tag => (<div className="tag">{tag}</div>))
+
   useEffect(() => {
     window.addEventListener("click", (e) => {
       e.target.classList.contains("tag") ||
@@ -38,7 +37,7 @@ export const WidgetLabels = () => {
         {labels?.length > 0 ? labels : <Dots steps={3} size={6} />}
       </div>
       <div style={{ position: 'absolute', top: '200px', zIndex: '4' }}>
-        {toggle ? <DropDownTags tags={labels} /> : null}
+        {toggle ? <DropDownTags tags={labels.slice(0, -1)} /> : null}
       </div>
 
     </div>

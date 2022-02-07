@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DotTable } from "../../components/shared/dotTable/DotTable";
 import { Dots } from "@dexma/ui-components";
-import { colorScale, sortInfo, headersData } from "../../utils";
+import { colorScale, sortInfo, headersData, sortHeaders } from "../../utils";
 import * as R from "ramda";
 import { ExcelTable } from "../../utils/exelData";
 import { useSelector } from "react-redux";
@@ -40,11 +40,16 @@ export const Dashboard = () => {
     }, [table]);
 
 
-    const newTableAllProps = table?.map(item => ({ ...item, "a": 'esto', 'b': 'es', 'c': 'de', 'd': 'prueba' }))
-    const tableData = R.map(table => R.values(table), newTableAllProps)
-    const headers = headersData.map(header => {
+    const tableDataApi = R.map(table => R.values(table),
+        dataSort.map(item => ({ ...item, "a": 'esto', 'b': 'es', 'c': 'de', 'd': 'prueba' })))
 
-        return <div className={header === 'Impacto Anomalías' ? 'header-impacto' : 'headers'}>
+    // const tableDataDummy = R.map(table => R.values(table), dummyData)
+
+
+    const headers = headersData.map(header => {
+        return <div
+            onClick={(e) => setDataSort(sortHeaders(e, dataSort))}
+            className={header === 'Impacto Anomalías' ? 'header-impacto' : 'headers'}>
             <div className="header-in">
                 {header}
             </div>
@@ -52,12 +57,18 @@ export const Dashboard = () => {
         </div>
     })
 
-    const info = tableData.map((item, i) => {
+    const info = tableDataApi.map((item, i) => {
         return item.map((row, a) => {
             return <div className="table-info"
                 style={{ backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}` }}>
                 <div className="table-data"
-                >
+                    style={{
+                        backgroundColor: `${a === 13
+                            ? colorScale(item[a])
+                            : even(i) ? '#f5f5f5' : 'white'}`,
+                        textDecoration: `${a === 0 ? 'underline' : 'none'}`
+                    }}>
+
                     {row === true
                         ? <DotTable className='red' />
                         : row === false
@@ -71,7 +82,7 @@ export const Dashboard = () => {
     })
     return (
 
-        < div className="dashboad-container" >
+        <div className="dashboad-container" >
             <div style={{ backgroundColor: '#F1F2F3', display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
                 <Top />
             </div>
@@ -117,8 +128,7 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
-                                    bottomTable(newTableAllProps).map((column, i) => column.map((row) => {
-                                        console.log(row, i)
+                                    bottomTable(table).map((column, i) => column.map((row) => {
                                         return <div
                                             className={row === 'Total Incidencias' ||
                                                 row === 'Total Stores' ||
@@ -128,14 +138,15 @@ export const Dashboard = () => {
                                             <div className={
                                                 row === 'Total Incidencias' ||
                                                     row === 'Total Stores' ||
-                                                    row === '% Incidencias' ? 'table-data-bottom-headers' : 'table-data'
+                                                    row === '% Incidencias' ? 'table-data-bottom-headers' : 'table-data-bottom-headers2'
                                             }>
                                                 {row}
                                             </div>
                                         </div>
                                     }))
                                 }
-                            </div> : <div className="loading-container">
+                            </div>
+                            : <div className="loading-container">
                                 <Dots steps="3" size="5" />
                             </div>}
                     </div>

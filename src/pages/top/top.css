@@ -16,6 +16,16 @@
     gap: 10px;
 }
 
+.widget-tags-top {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    height: 100px;
+    flex-wrap: nowrap;
+
+
+}
+
 .store-with-dot {
     display: flex;
     flex-direction: column;
