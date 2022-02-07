@@ -40,8 +40,8 @@ export const Dashboard = () => {
     }, [table]);
 
 
-    const newTableAllProps = table?.map(item => ({ ...item, "a": 1, 'b': 2, 'c': 3, 'd': 4 }))
-    const tableData = R.map(table => R.values(table), dummyData)
+    const newTableAllProps = table?.map(item => ({ ...item, "a": 'esto', 'b': 'es', 'c': 'de', 'd': 'prueba' }))
+    const tableData = R.map(table => R.values(table), newTableAllProps)
     const headers = headersData.map(header => {
 
         return <div className={header === 'Impacto Anomalías' ? 'header-impacto' : 'headers'}>

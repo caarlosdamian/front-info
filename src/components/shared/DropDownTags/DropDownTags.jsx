@@ -3,9 +3,9 @@ import { DropDownItems } from "../DropDownItems/DropDownItems";
 import "./DropDownTags.css";
 
 export const DropDownTags = ({ tags }) => {
-  const dropDownItems = tags.map((toast) => {
+  const dropDownItems = tags.map((toast, i) => {
     return (
-      <DropDownItems key={toast.id}>
+      <DropDownItems key={i}>
         <div>{toast}</div>
       </DropDownItems>
     );

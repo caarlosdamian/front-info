@@ -22,7 +22,8 @@ const initialState = {
     ],
   },
   total_locations: null,
-  location_tags: ['hola', 'que ', 'tal', 'hola', 'que ', 'tal'],
+  location_tags: ['hola', 'queddd', 'tals', 'holadd', 'que ', 'tal', 'holadd', 'que ', 'tal'],
+  dropdown_tagss: false
 };
 
 export const tableSlice = createSlice({

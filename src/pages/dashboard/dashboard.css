@@ -36,7 +36,7 @@
     flex-direction: column;
     height: 1000px;
     width: 100%;
-    z-index: 1;
+
 }
 
 .top-bottom {
@@ -154,14 +154,16 @@
 .headers-super-scroll {
     position: sticky;
     top: 0;
+
 }
 
 .headers-magic {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
-    scrollbar-width: thin;
+    scrollbar-width: 5px;
     width: 100%;
+
 }
 
 

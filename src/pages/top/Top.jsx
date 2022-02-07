@@ -35,7 +35,7 @@ export const Top = () => {
       <>
         {widget[0] === 'Store sin comunicacion' || widget[0] === 'Incidencias'
 
-          ? < Widget >
+          ? < Widget key={index}>
             <div className="store-with-dot">
               {storeIncidents !== null || undefined ? (
                 <div className="top-label">
