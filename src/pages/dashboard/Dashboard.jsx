@@ -41,12 +41,11 @@ export const Dashboard = () => {
 
 
     const tableDataApi = R.map(table => R.values(table),
-        dataSort.map(item => ({ ...item, "a": 'esto', 'b': 'es', 'c': 'de', 'd': 'prueba' })))
+        dataSort.map(item => ({ ...item, 'a': '-', 'b': '-', 'c': '-', 'd': '-' })))
 
     // const tableDataDummy = R.map(table => R.values(table), dummyData)
-
-
     const headers = headersData.map(header => {
+
         return <div
             onClick={(e) => setDataSort(sortHeaders(e, dataSort))}
             className={header === 'Impacto Anomalías' ? 'header-impacto' : 'headers'}>
@@ -58,25 +57,30 @@ export const Dashboard = () => {
     })
 
     const info = tableDataApi.map((item, i) => {
-        return item.map((row, a) => {
-            return <div className="table-info"
-                style={{ backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}` }}>
-                <div className="table-data"
-                    style={{
-                        backgroundColor: `${a === 13
-                            ? colorScale(item[a])
-                            : even(i) ? '#f5f5f5' : 'white'}`,
-                        textDecoration: `${a === 0 ? 'underline' : 'none'}`
-                    }}>
+        return item.map((row, col) => {
+            return (
+                <div className="table-info"
+                    style={{ backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}` }}>
+                    <div className="table-data"
+                        style={{
+                            backgroundColor: `${col === 13
+                                ? colorScale(item[col])
+                                : even(i) ? '#f5f5f5' : 'white'}`,
+                            textDecoration: `${col === 0 ? 'underline' : 'none'}`
+                        }}>
 
-                    {row === true
-                        ? <DotTable className='red' />
-                        : row === false
-                            ? <DotTable className='green' />
-                            : row
-                    }
+                        {row === true
+                            ? <DotTable className='red' />
+                            : row === false
+                                ? <DotTable className='green' />
+                                : row.length !== 0
+                                    ? row
+                                    : '-'
+                        }
+                    </div>
                 </div>
-            </div>
+            )
+
         }
         )
     })
@@ -93,7 +97,7 @@ export const Dashboard = () => {
                         <span className="span-estado-store"
                             onClick={ExcelTable(
                                 table,
-                                [location_tags, total_locations, 'tags n s', uncommunicated_stores,
+                                [location_tags, total_locations, 'tags', uncommunicated_stores,
                                     incidents,
                                     `${perc_stores_without_incidents}%`]
                             )
@@ -102,7 +106,7 @@ export const Dashboard = () => {
                         </span>
                     </div>
 
-                    {/* ///////////CENTRAL-TABLE-GRID/////////////////////////////// */}
+                    {/* ///////////HEADERS-GRID/////////////////////////////// */}
 
                     <div className="headers-magic">
                         <div className="headers-super-scroll">
@@ -110,6 +114,7 @@ export const Dashboard = () => {
                                 {headers}
                             </div>
                         </div>
+                        {/* ///////////CENTRAL-TABLE-GRID/////////////////////////////// */}
 
                         <div className="table-container">
                             {table?.length !== 0
@@ -123,26 +128,30 @@ export const Dashboard = () => {
                     </div>
 
                     {/* ///////////BOTTOM GRID/////////////////////////////// */}
-                    <div className=" bottom-bottom-grid">
+                    <div className="bottom-bottom-grid">
+
                         {table?.length !== 0
                             ? <div className="bottom-grid-container">
 
                                 {
                                     bottomTable(table).map((column, i) => column.map((row) => {
-                                        return <div
-                                            className={row === 'Total Incidencias' ||
-                                                row === 'Total Stores' ||
-                                                row === '% Incidencias' ? 'bottom-bottom-grid-headers' : ''}
-                                            style={{ backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}`, }}>
 
-                                            <div className={
-                                                row === 'Total Incidencias' ||
+                                        return (
+                                            <div
+                                                className={row === 'Total Incidencias' ||
                                                     row === 'Total Stores' ||
-                                                    row === '% Incidencias' ? 'table-data-bottom-headers' : 'table-data-bottom-headers2'
-                                            }>
-                                                {row}
+                                                    row === '% Incidencias' ? 'bottom-bottom-grid-headers' : ''}
+                                                style={{ backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}` }}>
+
+                                                <div className={
+                                                    row === 'Total Incidencias' ||
+                                                        row === 'Total Stores' ||
+                                                        row === '% Incidencias' ? 'table-data-bottom-headers' : 'table-data-bottom-headers2'
+                                                }>
+                                                    {row.length !== 0 ? row : '-'}
+                                                </div>
                                             </div>
-                                        </div>
+                                        )
                                     }))
                                 }
                             </div>

@@ -32,8 +32,8 @@ export const WidgetLabels = () => {
   }, [toggle]);
 
   return (
-    <div className="widget-label-container">
-      <div className="widget-top">
+    <div className="tags-labels-container">
+      <div className="tags-top-grid">
         {labels?.length > 0 ? labels : <Dots steps={3} size={6} />}
       </div>
       <div style={{ position: 'absolute', top: '200px', zIndex: '4' }}>

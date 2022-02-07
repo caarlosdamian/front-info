@@ -18,12 +18,12 @@
 
 .widget-tags-top {
     display: flex;
-    align-items: end;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    height: 100px;
-    flex-wrap: nowrap;
-
-
+    width: 100%;
+    padding-bottom: 20px;
+    height: 100%;
 }
 
 .store-with-dot {
@@ -47,6 +47,7 @@
 .widget-label {
     font-family: "SFProText-Regular";
     font-size: 12px;
+
 
 }
 
