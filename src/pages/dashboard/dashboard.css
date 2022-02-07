@@ -26,7 +26,7 @@
     height: 1000px;
     padding: 20px;
     width: 100%;
-    z-index: 1;
+
 }
 
 .bottom {
@@ -330,4 +330,12 @@
             border-top: 1px solid #dee0e2;
         }
     }
+}
+
+@media(max-width: 400px) {
+    .table-container {
+        height: 200px;
+
+    }
+
 }

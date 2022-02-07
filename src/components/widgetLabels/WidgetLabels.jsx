@@ -15,17 +15,14 @@ export const WidgetLabels = () => {
     setToast(location_tags);
   }, [location_tags]);
 
-  const labels = location_tags?.slice(0, 7).map((toast, i) => (
-    <div className="tag">{toast}</div>
-    // <Tag key={i} >{toast}</Tag>
-  ))
-
-
   const handleToggle = (e) => {
     e.stopPropagation();
     setToggle(!toggle);
   };
-
+  const labels = location_tags?.slice(0, 7).map((toast, i) => (
+    <div className="tag">{toast}</div>
+    // <Tag key={i} >{toast}</Tag>
+  )).concat(<div className="widget-dots" onClick={handleToggle}></div>)
   useEffect(() => {
     window.addEventListener("click", (e) => {
       e.target.classList.contains("tag") ||
@@ -40,7 +37,6 @@ export const WidgetLabels = () => {
       <div className="widget-top">
         {labels?.length > 0 ? labels : <Dots steps={3} size={6} />}
       </div>
-
       <div style={{ position: 'absolute', top: '200px', zIndex: '4' }}>
         {toggle ? <DropDownTags tags={labels} /> : null}
       </div>
