@@ -71,9 +71,9 @@ export const Dashboard = () => {
                         }}>
 
                         {row === true
-                            ? <DotTable className='red' />
+                            ? <DotTable className='green' />
                             : row === false
-                                ? <DotTable className='green' />
+                                ? <DotTable className='red' />
                                 : row.length !== 0
                                     ? row
                                     : '-'
