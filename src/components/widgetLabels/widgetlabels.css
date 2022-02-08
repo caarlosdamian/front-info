@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   width: 80%;
   height: 100%;
   flex-wrap: wrap;
@@ -61,10 +61,12 @@
 }
 
 .tags-labels-container {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
   height: 100%;
   width: 100%;
 }

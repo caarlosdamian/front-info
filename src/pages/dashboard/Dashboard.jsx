@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { DotTable } from "../../components/shared/dotTable/DotTable";
 import { Dots } from "@dexma/ui-components";
-import { colorScale, sortInfo, headersData, sortHeaders, colorRedScale } from "../../utils";
+import { colorScale, headersData, sortHeaders } from "../../utils";
 import * as R from "ramda";
 import { ExcelTable } from "../../utils/exelData";
 import { useSelector } from "react-redux";
-import { dummyData } from "../../utils/dummyData";
 import './dashboard.css'
 import { bottomTable } from "../../utils/bottomData";
 import { Top } from '../Top/Top'
@@ -17,33 +16,16 @@ export const Dashboard = () => {
         perc_stores_without_incidents } = useSelector((state) => state.table.data);
     const { total_locations, location_tags } = useSelector((state) => state.table)
 
-    const [newData, setNewData] = useState();
-    const [incidentsArray] = useState([
-        "Comunicacion",
-        "Pasarela_Clima",
-        "Alumbrado",
-        "Clima",
-        "Banderola",
-        "Rotulos",
-        "Consumo_Clima",
-        "Confort",
-    ]);
     const [dataSort, setDataSort] = useState(table);
-    useEffect(() => {
-        table?.length !== 0 && setNewData(sortInfo(incidentsArray, table));
-    }, [table, incidentsArray]);
 
     useEffect(() => {
         table?.length !== 0 && setDataSort(table);
     }, [table]);
 
-
     const tableDataApi = R.map(table => R.values(table),
         dataSort.map(item => ({ ...item, 'a': '-', 'b': '-', 'c': '-', 'd': '-' })))
 
-    const tableDataDummy = R.map(table => R.values(table), dummyData)
     const headers = headersData.map(header => {
-
         return <div
             onClick={(e) => setDataSort(sortHeaders(e, dataSort))}
             className={header === 'Impacto Anomalías' ? 'header-impacto' : 'headers'}>
@@ -154,7 +136,7 @@ export const Dashboard = () => {
                                                 }>
                                                     {i === 2
                                                         ? `${row}%`
-                                                        : i === 1 && row.length !== 0 || i === 0 && row.length !== 0
+                                                        : (i === 1 || i === 0) && row.length !== 0
                                                             ? row
                                                             : '-'}
                                                 </div>

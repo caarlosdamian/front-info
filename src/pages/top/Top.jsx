@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Widget } from "../../components/widget/Widget";
 import { WidgetLabels } from "../../components/widgetLabels/WidgetLabels";
 import { Dot } from "../../components/shared/dot/Dot";
@@ -8,12 +8,7 @@ import { useSelector } from "react-redux";
 export const Top = () => {
 
   const { incidents, perc_stores_without_incidents, uncommunicated_stores } = useSelector((state) => state.table.data);
-  const { total_locations, } = useSelector((state) => state.table);
-
-
-  const location_tags = [{ id: 0, label: "Propa" }, { id: 1, label: "Pass2" }, { id: 2, label: "Prs3" },
-  { id: 0, label: "Prss" }, { id: 1, label: "Prs2" }, { id: 2, label: "Pss3" }, { id: 2, label: "Pss3" }]
-
+  const { total_locations, location_tags } = useSelector((state) => state.table);
 
   const widgetsData = [
     ['Localizaciones', total_locations],
