@@ -20,10 +20,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-bottom: 20px;
-    height: 100%;
+
+    justify-content: space-around;
+    width: 90%;
+    padding-bottom: 10px;
+    height: 90%;
+}
+
+.tags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+
 }
 
 .store-with-dot {
@@ -59,9 +69,31 @@
 }
 
 
+@media (max-width: 1000px) {
+    .widget-label {
+        font-family: "SFProText-Regular";
+        font-size: 12px;
+    }
+
+    .widget-number {
+        font-family: "SFProText-Regular";
+        font-size: 27px;
+        height: 100%;
+    }
+
+    .widget-tags-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding-bottom: 20px;
+        height: 100%;
+    }
+}
+
+
 @media (max-width: 700px) {
-
-
     .widget-label {
         font-family: "SFProText-Regular";
         font-size: 12px;
@@ -70,7 +102,9 @@
 
     .widget-number {
         font-family: "SFProText-Regular";
-        font-size: 30px;
+
+        font-size: 20px;
+
     }
 
     .widget-tags-top {

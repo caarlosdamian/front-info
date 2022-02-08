@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Tag, Dots } from "@dexma/ui-components";
+import { Dots } from "@dexma/ui-components";
 import { DropDownTags } from "../shared/DropDownTags/DropDownTags";
 import "./widgetlabels.css";
-import { useSelector } from "react-redux";
 
-export const WidgetLabels = () => {
 
-  const { location_tags } = useSelector((state) => state.table);
+
+export const WidgetLabels = ({ loc_tags }) => {
   const [toggle, setToggle] = useState(false);
-
 
   const handleToggle = (e) => {
     e.stopPropagation();
@@ -16,11 +14,15 @@ export const WidgetLabels = () => {
   };
 
 
-  const labels = location_tags?.length >= 7 ? location_tags?.slice(0, 7).map(tag =>
-    <div className="tag">{tag}</div>
-  ).concat([<div className="widget-dots" onClick={handleToggle}>
-    <Dots steps={3} size={2} />
-  </div>]) : location_tags?.map(tag => (<div className="tag">{tag}</div>))
+  const labels = loc_tags.length >= 7
+    ? loc_tags.slice(0, 7).map(tag =>
+      <div className="tag">{tag.label}</div>
+    ).concat(
+      [<div className="widget-dots" onClick={handleToggle}>
+        <Dots steps={3} size={2} />
+      </div>])
+    : loc_tags.map(tag => (<div className="tag">{tag.label}</div>))
+
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -36,7 +38,9 @@ export const WidgetLabels = () => {
       <div className="tags-top-grid">
         {labels?.length > 0 ? labels : <Dots steps={3} size={6} />}
       </div>
-      <div style={{ position: 'absolute', top: '200px', zIndex: '4' }}>
+
+      <div style={{ position: 'absolute', top: '165px', zIndex: '4' }}>
+
         {toggle ? <DropDownTags tags={labels.slice(0, -1)} /> : null}
       </div>
 
