@@ -9,7 +9,7 @@ import { dummyData } from "../../utils/dummyData";
 import './dashboard.css'
 import { bottomTable } from "../../utils/bottomData";
 import { Top } from '../top/Top'
-import { rgb } from "chroma-js";
+
 
 
 const even = (n) => n % 2 === 0;
@@ -135,7 +135,7 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
-                                    bottomTable(dummyData).map((column, i) => column.map((row, j) => {
+                                    bottomTable(table).map((column, i) => column.map((row, j) => {
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
                                         return (
                                             <div

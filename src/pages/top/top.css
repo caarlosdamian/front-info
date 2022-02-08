@@ -4,7 +4,6 @@
         url("../../fonts/SFProText-Regular.ttf") format("truetype");
 }
 
-
 .top-container {
     width: 100%;
     margin-bottom: 10px;
@@ -58,14 +57,10 @@
 
 }
 
-
 @media (max-width: 700px) {
-
-
     .widget-label {
         font-family: "SFProText-Regular";
         font-size: 12px;
-
     }
 
     .widget-number {
