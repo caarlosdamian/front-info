@@ -17,6 +17,7 @@
   flex-wrap: wrap;
   height: 50%;
   width: 60%;
+
 }
 
 .widget-grid-container {
@@ -26,6 +27,7 @@
   font-family: "SFProText-Regular";
 }
 
+
 .tag {
   display: flex;
   align-items: center;
@@ -33,17 +35,21 @@
   font-family: "SFProText-Regular";
   color: #404145;
   background-color: #F7F9FA;
+
   border-radius: 5px;
   border: 1px solid #dee0e2 !important;
   box-sizing: border-box;
   font-family: "SFProText-Regular";
   font-size: 12px;
+
   font-weight: 600;
   height: 25px;
   -ms-word-break: break-all;
   word-break: break-all;
+
   padding: 3px;
   width: 7rem;
+
   width: -moz-max-content;
   width: -webkit-max-content;
   width: max-content;
@@ -130,6 +136,7 @@
   }
 }
 
+
 @media (max-width: 1000px) {
   .tags-top-grid {
     display: flex;
@@ -170,6 +177,7 @@
     width: -moz-max-content;
     width: -webkit-max-content;
     width: max-content;
+
 
   }
 }

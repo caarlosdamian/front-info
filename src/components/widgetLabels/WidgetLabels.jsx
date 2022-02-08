@@ -3,9 +3,9 @@ import { Dots } from "@dexma/ui-components";
 import { DropDownTags } from "../shared/DropDownTags/DropDownTags";
 import "./widgetlabels.css";
 
-
 export const WidgetLabels = ({ loc_tags }) => {
   const [toggle, setToggle] = useState(false);
+
   const handleToggle = (e) => {
     e.stopPropagation();
     setToggle(!toggle);
@@ -19,6 +19,7 @@ export const WidgetLabels = ({ loc_tags }) => {
         <Dots steps={3} size={2} />
       </div>])
     : loc_tags.map(tag => (<div className="tag">{tag.label}</div>))
+
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -34,9 +35,12 @@ export const WidgetLabels = ({ loc_tags }) => {
       <div className="tags-top-grid">
         {labels?.length > 0 ? labels : <Dots steps={3} size={6} />}
       </div>
+
       <div style={{ position: 'absolute', top: '165px', zIndex: '4' }}>
+
         {toggle ? <DropDownTags tags={labels.slice(0, -1)} /> : null}
       </div>
+
     </div>
   );
 };

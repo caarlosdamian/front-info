@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { dummyData } from "../../utils/dummyData";
 import './dashboard.css'
 import { bottomTable } from "../../utils/bottomData";
+
 import { Top } from '../Top/Top'
 
 const even = (n) => n % 2 === 0;
@@ -42,6 +43,7 @@ export const Dashboard = () => {
         dataSort.map(item => ({ ...item, 'a': '-', 'b': '-', 'c': '-', 'd': '-' })))
 
     const tableDataDummy = R.map(table => R.values(table), dummyData)
+
     const headers = headersData.map(header => {
 
         return <div
@@ -68,9 +70,11 @@ export const Dashboard = () => {
                         }}>
 
                         {row === true
+
                             ? <DotTable className='green' />
                             : row === false
                                 ? <DotTable className='red' />
+
                                 : row.length !== 0
                                     ? row
                                     : '-'
@@ -132,10 +136,12 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
+
                                     bottomTable(table).map((column, i) => column.map((row, j) => {
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
                                         return (
                                             <div
+
 
                                                 className={row === 'Total Incidencias' ||
                                                     row === 'Total Stores' ||
