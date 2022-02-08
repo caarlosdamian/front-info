@@ -8,12 +8,10 @@ import { useSelector } from "react-redux";
 import { dummyData } from "../../utils/dummyData";
 import './dashboard.css'
 import { bottomTable } from "../../utils/bottomData";
-import { Top } from '../top/Top'
-import { rgb } from "chroma-js";
 
+import { Top } from '../Top/Top'
 
 const even = (n) => n % 2 === 0;
-
 export const Dashboard = () => {
     const { table, incidents,
         uncommunicated_stores,
@@ -44,7 +42,8 @@ export const Dashboard = () => {
     const tableDataApi = R.map(table => R.values(table),
         dataSort.map(item => ({ ...item, 'a': '-', 'b': '-', 'c': '-', 'd': '-' })))
 
-    // const tableDataDummy = R.map(table => R.values(table), dummyData)
+    const tableDataDummy = R.map(table => R.values(table), dummyData)
+
     const headers = headersData.map(header => {
 
         return <div
@@ -71,9 +70,11 @@ export const Dashboard = () => {
                         }}>
 
                         {row === true
-                            ? <DotTable className='red' />
+
+                            ? <DotTable className='green' />
                             : row === false
-                                ? <DotTable className='green' />
+                                ? <DotTable className='red' />
+
                                 : row.length !== 0
                                     ? row
                                     : '-'
@@ -135,12 +136,13 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
-                                    bottomTable(dummyData).map((column, i) => column.map((row, j) => {
+
+                                    bottomTable(table).map((column, i) => column.map((row, j) => {
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
                                         return (
                                             <div
-                                                // colorRedScale(parseFloat(colorValue ? row : 0))
-                                                // '#f5f5f5'
+
+
                                                 className={row === 'Total Incidencias' ||
                                                     row === 'Total Stores' ||
                                                     row === '% Incidencias' ? 'bottom-bottom-grid-headers' : ''}

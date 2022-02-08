@@ -22,7 +22,10 @@ const initialState = {
     ],
   },
   total_locations: null,
-  location_tags: ['una', 'dos', 'tres', 'una', 'dos', 'tres', 'una', 'dos', 'tres'],
+
+  location_tags: [{ id: 0, label: "Propa" }, { id: 1, label: "Pass2" }, { id: 2, label: "Prs3" },
+  { id: 0, label: "Prss" }, { id: 1, label: "Prs2" }, { id: 2, label: "Pss3" }, { id: 2, label: "Pss3" }],
+
   dropdown_tagss: false
 };
 
