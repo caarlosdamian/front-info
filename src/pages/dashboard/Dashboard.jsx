@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { DotTable } from "../../components/shared/dotTable/DotTable";
 import { Dots } from "@dexma/ui-components";
-import { colorScale, sortInfo, headersData, sortHeaders } from "../../utils";
+import { colorScale, sortInfo, headersData, sortHeaders, colorRedScale } from "../../utils";
 import * as R from "ramda";
 import { ExcelTable } from "../../utils/exelData";
 import { useSelector } from "react-redux";
@@ -134,21 +134,34 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
-                                    bottomTable(table).map((column, i) => column.map((row) => {
+                                    bottomTable(table).map((column, i) => column.map((row, j) => {
+                                        const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
+                                        console.log(parseFloat(colorValue && i === 2 ? row : 0))
 
                                         return (
                                             <div
+                                                // colorRedScale(parseFloat(colorValue ? row : 0))
+                                                // '#f5f5f5'
                                                 className={row === 'Total Incidencias' ||
                                                     row === 'Total Stores' ||
                                                     row === '% Incidencias' ? 'bottom-bottom-grid-headers' : ''}
-                                                style={{ backgroundColor: `${even(i) ? '#f5f5f5' : 'white'}` }}>
+                                                style={{
+                                                    backgroundColor: `${colorValue
+                                                        ? colorRedScale(parseFloat(colorValue ? row : 0))
+                                                        : i === 1 ? '#f5f5f5'
+                                                            : 'white'}`
+                                                }}>
 
                                                 <div className={
                                                     row === 'Total Incidencias' ||
                                                         row === 'Total Stores' ||
                                                         row === '% Incidencias' ? 'table-data-bottom-headers' : 'table-data-bottom-headers2'
                                                 }>
-                                                    {row.length !== 0 ? row : '-'}
+                                                    {i === 2
+                                                        ? `${row}%`
+                                                        : i === 1 && row.length !== 0 || i === 0 && row.length !== 0
+                                                            ? row
+                                                            : '-'}
                                                 </div>
                                             </div>
                                         )

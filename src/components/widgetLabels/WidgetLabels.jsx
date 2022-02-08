@@ -16,7 +16,7 @@ export const WidgetLabels = () => {
   };
 
 
-  const labels = location_tags.length >= 7 ? location_tags.map(tag =>
+  const labels = location_tags?.length >= 7 ? location_tags?.slice(0, 7).map(tag =>
     <div className="tag">{tag}</div>
   ).concat([<div className="widget-dots" onClick={handleToggle}>
     <Dots steps={3} size={2} />
