@@ -308,7 +308,7 @@
         font-size: 10px;
         color: black;
         border-bottom: 1px solid #dee0e2;
-        border-right: 1px solid rgb(182, 178, 178);
+        /* border-right: 1px solid rgb(182, 178, 178); */
         border-top: 1px solid #dee0e2;
         height: 40px;
         width: 100%;
@@ -354,7 +354,7 @@
             font-size: 8px;
             color: black;
             border-bottom: 1px solid #dee0e2;
-            border-right: 1px solid white;
+            /* border-right: 1px solid white; */
             border-top: 1px solid #dee0e2;
             height: 40px;
             width: 100%;

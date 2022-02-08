@@ -135,8 +135,12 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
-                                    bottomTable(table).map((column, i) => column.map((row, j) => {
+                                    bottomTable(dummyData).map((column, i) => column.map((row, j) => {
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
+
+
+
+
 
 
                                         return (
@@ -148,7 +152,7 @@ export const Dashboard = () => {
                                                     row === '% Incidencias' ? 'bottom-bottom-grid-headers' : ''}
                                                 style={{
                                                     backgroundColor: `${colorValue
-                                                        ? rgb(247, 168, 168, parseFloat(row))
+                                                        ? `rgba(255, 99, 71,${row} )`
                                                         : i === 1 ? '#f5f5f5'
                                                             : 'white'}`
                                                 }}>
