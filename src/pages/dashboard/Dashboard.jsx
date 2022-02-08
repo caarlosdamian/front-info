@@ -137,12 +137,6 @@ export const Dashboard = () => {
                                 {
                                     bottomTable(dummyData).map((column, i) => column.map((row, j) => {
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
-
-
-
-
-
-
                                         return (
                                             <div
                                                 // colorRedScale(parseFloat(colorValue ? row : 0))
@@ -152,7 +146,7 @@ export const Dashboard = () => {
                                                     row === '% Incidencias' ? 'bottom-bottom-grid-headers' : ''}
                                                 style={{
                                                     backgroundColor: `${colorValue
-                                                        ? `rgba(255, 99, 71,${row} )`
+                                                        ? `rgba(255, 99, 71,${(row / 100).toFixed(2)} )`
                                                         : i === 1 ? '#f5f5f5'
                                                             : 'white'}`
                                                 }}>
