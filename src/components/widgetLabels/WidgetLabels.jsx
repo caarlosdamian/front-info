@@ -6,10 +6,12 @@ import "./widgetlabels.css";
 
 export const WidgetLabels = ({ loc_tags }) => {
   const [toggle, setToggle] = useState(false);
+
   const handleToggle = (e) => {
     e.stopPropagation();
     setToggle(!toggle);
   };
+
 
   const labels = loc_tags.length >= 7
     ? loc_tags.slice(0, 7).map(tag =>
@@ -19,6 +21,7 @@ export const WidgetLabels = ({ loc_tags }) => {
         <Dots steps={3} size={2} />
       </div>])
     : loc_tags.map(tag => (<div className="tag">{tag.label}</div>))
+
 
   useEffect(() => {
     window.addEventListener("click", (e) => {
@@ -30,8 +33,6 @@ export const WidgetLabels = ({ loc_tags }) => {
   }, [toggle]);
 
   return (
-
-
     <div className="tags-labels-container">
       <div className="tags-top-grid">
         {labels?.length > 0 ? labels : <Dots steps={3} size={6} />}
@@ -39,6 +40,7 @@ export const WidgetLabels = ({ loc_tags }) => {
       <div style={{ position: 'absolute', top: '200px', zIndex: '4' }}>
         {toggle ? <DropDownTags tags={labels.slice(0, -1)} /> : null}
       </div>
+
     </div>
   );
 };

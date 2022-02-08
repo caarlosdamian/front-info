@@ -17,6 +17,7 @@
   flex-wrap: wrap;
   height: 50%;
   width: 60%;
+
 }
 
 .widget-grid-container {
@@ -38,15 +39,18 @@
   box-sizing: border-box;
   font-family: "SFProText-Regular";
   font-size: 12px;
+
   font-weight: 600;
   height: 25px;
   -ms-word-break: break-all;
   word-break: break-all;
+
   padding: 3px;
   width: 7rem;
   /* width: -moz-max-content;
   width: -webkit-max-content;
   width: max-content; */
+
 
 }
 

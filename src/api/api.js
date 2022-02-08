@@ -3,7 +3,7 @@ export const baseUrl = process.env.REACT_APP_BACKEND_URL;
 const urlParams = new URLSearchParams(window.location.search);
 const headers = {
   "X-Dep-ID": 5679,
-  "X-Session-ID": "aa1044c97a1ea2b9fe4de0aac3d572c77392f9d8e123a31878bea37705713555",
+  "X-Session-ID": "789d4292ae0f2117d36001223ee92b1f9d4d91a1fae0068b2710cc4158ecc5cf",
 };
 const get = async (path) => {
   const response = await axios.get(`${baseUrl}${path}/`, { headers });
