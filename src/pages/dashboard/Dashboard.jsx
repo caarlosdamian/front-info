@@ -57,7 +57,7 @@ export const Dashboard = () => {
         </div>
     })
 
-    const info = tableDataApi.map((item, i) => {
+    const info = tableDataDummy.map((item, i) => {
         return item.map((row, col) => {
             return (
                 <div className="table-info"

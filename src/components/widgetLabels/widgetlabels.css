@@ -24,7 +24,7 @@
   align-items: flex-start;
   justify-content: space-between;
   font-family: "SFProText-Regular";
-  height: 70px;
+  /* height: 70px; */
 }
 
 .tag {
