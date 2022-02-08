@@ -104,14 +104,6 @@
 
 }
 
-.table-info {
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    height: '40px';
-    box-sizing: border-box; */
-
-}
 
 .table-and-loading-container {
     display: flex;
@@ -132,6 +124,7 @@
 }
 
 .headers {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;

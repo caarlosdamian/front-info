@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { api } from "./api/api";
 import "./App.css";
-import { DashboardContainer } from "./components/grid-container/DashboardContainer";
+import { DashboardContainer } from "./components/GridContainer/DashboardContainer";
 import { SET_TABLE, SET_LOCATIONS, SET_TAGS } from "./redux/tableSlice/TableSlice";
 
 function App() {

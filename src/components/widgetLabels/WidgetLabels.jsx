@@ -30,13 +30,11 @@ export const WidgetLabels = ({ loc_tags }) => {
   }, [toggle]);
 
   return (
-
-
     <div className="tags-labels-container">
       <div className="tags-top-grid">
         {labels?.length > 0 ? labels : <Dots steps={3} size={6} />}
       </div>
-      <div style={{ position: 'absolute', top: '200px', zIndex: '4' }}>
+      <div style={{ position: 'absolute', top: '165px', zIndex: '4' }}>
         {toggle ? <DropDownTags tags={labels.slice(0, -1)} /> : null}
       </div>
     </div>

@@ -8,27 +8,19 @@ import { useSelector } from "react-redux";
 export const Top = () => {
 
   const { incidents, perc_stores_without_incidents, uncommunicated_stores } = useSelector((state) => state.table.data);
-  const { total_locations, location_tags } = useSelector((state) => state.table);
-  const [locations, setLocations] = useState(null);
-  const [storesComunication, setStoresComunication] = useState(null);
-  const [storeIncidents, setStoreIncidents] = useState(null);
-  const [storesWithoutIncidents, setStoresWithoutIncidents] = useState(null);
+  const { total_locations, } = useSelector((state) => state.table);
 
 
-  useEffect(() => {
-    setStoresComunication(uncommunicated_stores);
-    setStoreIncidents(incidents);
-    setStoresWithoutIncidents(perc_stores_without_incidents);
-    setLocations(total_locations);
-  }, [uncommunicated_stores, incidents, perc_stores_without_incidents, total_locations]);
+  const location_tags = [{ id: 0, label: "Propa" }, { id: 1, label: "Pass2" }, { id: 2, label: "Prs3" },
+  { id: 0, label: "Prss" }, { id: 1, label: "Prs2" }, { id: 2, label: "Pss3" }, { id: 2, label: "Pss3" }]
 
 
   const widgetsData = [
-    ['Localizaciones', locations],
+    ['Localizaciones', total_locations],
     ['Tags Seleccionadas', <WidgetLabels loc_tags={location_tags} />, 'Tags no seleccionadas'],
-    ['Store sin comunicacion', storesComunication],
-    ['Incidencias', storeIncidents],
-    ['Store sin incidencias', storesWithoutIncidents]
+    ['Store sin comunicacion', uncommunicated_stores],
+    ['Incidencias', incidents],
+    ['Store sin incidencias', perc_stores_without_incidents]
   ]
   const widgets = widgetsData.map((widget, index) => {
     return (
@@ -37,7 +29,7 @@ export const Top = () => {
 
           ? < Widget key={index}>
             <div className="store-with-dot">
-              {storeIncidents !== null || undefined ? (
+              {perc_stores_without_incidents !== null || undefined ? (
                 <div className="top-label">
                   <Dot
                     style={{
@@ -62,8 +54,11 @@ export const Top = () => {
               {location_tags.length !== 0
                 ?
                 <div className="widget-tags-top">
-                  {storeIncidents !== null || undefined ? (
-                    <span>{widget[1]}</span>
+                  {perc_stores_without_incidents !== null || undefined ? (
+                    <div className="tags">
+                      {widget[1]}
+                    </div>
+
                   ) : (
                     <Dots steps={3} size={6} />
                   )}
@@ -77,7 +72,7 @@ export const Top = () => {
             : widget[0] === 'Store sin incidencias'
               ? < Widget >
                 <div className="widget-left">
-                  {storeIncidents !== null || undefined ? (
+                  {perc_stores_without_incidents !== null || undefined ? (
                     <span className="widget-number">{`${widget[1]}%`}</span>
                   ) : (
                     <Dots steps={3} size={6} />
@@ -88,7 +83,7 @@ export const Top = () => {
 
               < Widget >
                 <div className="widget-left">
-                  {storeIncidents !== null || undefined ? (
+                  {perc_stores_without_incidents !== null || undefined ? (
                     <span className="widget-number">{widget[1]}</span>
                   ) : (
                     <Dots steps={3} size={6} />
