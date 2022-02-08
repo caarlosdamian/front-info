@@ -9,6 +9,7 @@ import { dummyData } from "../../utils/dummyData";
 import './dashboard.css'
 import { bottomTable } from "../../utils/bottomData";
 import { Top } from '../top/Top'
+import { rgb } from "chroma-js";
 
 
 const even = (n) => n % 2 === 0;
@@ -136,7 +137,7 @@ export const Dashboard = () => {
                                 {
                                     bottomTable(table).map((column, i) => column.map((row, j) => {
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
-                                        console.log(parseFloat(colorValue && i === 2 ? row : 0))
+
 
                                         return (
                                             <div
@@ -147,7 +148,7 @@ export const Dashboard = () => {
                                                     row === '% Incidencias' ? 'bottom-bottom-grid-headers' : ''}
                                                 style={{
                                                     backgroundColor: `${colorValue
-                                                        ? colorRedScale(parseFloat(colorValue ? row : 0))
+                                                        ? rgb(247, 168, 168, parseFloat(row))
                                                         : i === 1 ? '#f5f5f5'
                                                             : 'white'}`
                                                 }}>
