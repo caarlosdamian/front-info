@@ -44,7 +44,7 @@ export const Dashboard = () => {
     const tableDataApi = R.map(table => R.values(table),
         dataSort.map(item => ({ ...item, 'a': '-', 'b': '-', 'c': '-', 'd': '-' })))
 
-    // const tableDataDummy = R.map(table => R.values(table), dummyData)
+    const tableDataDummy = R.map(table => R.values(table), dummyData)
     const headers = headersData.map(header => {
 
         return <div
@@ -135,7 +135,7 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
-                                    bottomTable(table).map((column, i) => column.map((row, j) => {
+                                    bottomTable(dummyData).map((column, i) => column.map((row, j) => {
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
                                         return (
                                             <div
