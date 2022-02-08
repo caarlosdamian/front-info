@@ -7,6 +7,8 @@ import "./top.css";
 import { useSelector } from "react-redux";
 export const Top = () => {
 
+
+
   const { incidents, perc_stores_without_incidents, uncommunicated_stores } = useSelector((state) => state.table.data);
   const { total_locations, location_tags } = useSelector((state) => state.table);
 
@@ -79,6 +81,89 @@ export const Top = () => {
               < Widget >
                 <div className="widget-left">
                   {perc_stores_without_incidents !== null || undefined ? (
+                    <span className="widget-number">{widget[1]}</span>
+                  ) : (
+                    <Dots steps={3} size={6} />
+                  )}
+                  <span className="widget-label">{widget[0]}</span>
+                </div>
+              </Widget>}
+      </>
+
+    )
+  })
+
+
+
+  const widgetsData = [
+    ['Localizaciones', locations],
+    ['Tags Seleccionadas', <WidgetLabels />, 'Tags no seleccionadas'],
+    ['Store sin comunicacion', storesComunication],
+    ['Incidencias', storeIncidents],
+    ['Store sin incidencias', storesWithoutIncidents]
+  ]
+
+  const widgets = widgetsData.map((widget, index) => {
+    return (
+      <>
+        {widget[0] === 'Store sin comunicacion' || widget[0] === 'Incidencias'
+          ? < Widget key={index}>
+            <div className="store-with-dot">
+              {storeIncidents !== null || undefined ? (
+                <div className="top-label">
+                  <Dot
+                    style={{
+                      backgroundColor: "#F25A5A",
+                      width: "16px",
+                      height: "16px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                  <span className="widget-number">{widget[1]}</span>
+                </div>
+              ) : (
+                <Dots steps={3} size={6} />
+              )}
+              <span className="widget-label">{widget[0]}</span>
+            </div >
+          </Widget>
+
+
+          : widget[0] === 'Tags Seleccionadas' ?
+            < Widget >
+              {location_tags.length !== 0
+                ?
+                <div className="widget-tags-top">
+                  {storeIncidents !== null || undefined ? (
+                    <span>{widget[1]}</span>
+                  ) : (
+                    <Dots steps={3} size={6} />
+                  )}
+                  <span className="widget-label">{widget[0]}</span>
+                </div>
+                :
+                <span className="widget-label">{widget[2]}</span>}
+
+            </Widget>
+
+
+            : widget[0] === 'Store sin incidencias'
+              ? < Widget >
+                <div className="widget-left">
+                  {storeIncidents !== null || undefined ? (
+                    <span className="widget-number">{`${widget[1]}%`}</span>
+                  ) : (
+                    <Dots steps={3} size={6} />
+                  )}
+                  <span className="widget-label">{widget[0]}</span>
+                </div>
+              </Widget> :
+
+
+
+              < Widget >
+                <div className="widget-left">
+                  {storeIncidents !== null || undefined ? (
                     <span className="widget-number">{widget[1]}</span>
                   ) : (
                     <Dots steps={3} size={6} />
