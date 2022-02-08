@@ -135,7 +135,7 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
-                                    bottomTable(dummyData).map((column, i) => column.map((row, j) => {
+                                    bottomTable(table).map((column, i) => column.map((row, j) => {
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
                                         return (
                                             <div
