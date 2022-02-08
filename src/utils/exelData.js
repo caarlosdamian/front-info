@@ -52,7 +52,7 @@ export const ExcelTable = (data, top) => {
     //para modificar cuando este toda la data
     const finalPercentage = percentage.map(p => p === 'NaN' ? 0 : p)
     const inciArray = ['Total Incidencias', 'Total Stores', '% Incidencias',]
-    const excelArray = R.zip(inciArray, [R.flatten(['', '', totalInci]), R.flatten(['', '', totalScore]), R.flatten(['', '', finalPercentage])])
+    const excelArray = R.zip(inciArray, [R.flatten(['', '', totalInci, '', '', '', '']), R.flatten(['', '', totalScore, '', '', '', '']), R.flatten(['', '', finalPercentage, '', '', '', ''])])
     const superExcelArray = excelArray.map(arr => R.flatten(arr))
 
 

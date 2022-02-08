@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Widget } from "../../components/widget/Widget";
 import { WidgetLabels } from "../../components/widgetLabels/WidgetLabels";
-import { Dot } from "../../components/shared/Dot/Dot";
+import { Dot } from "../../components/shared/dot/Dot";
 import { Dots } from "@dexma/ui-components";
 import "./top.css";
 import { useSelector } from "react-redux";
 export const Top = () => {
-  const { incidents, perc_stores_without_incidents, uncommunicated_stores } =
-    useSelector((state) => state.table.data);
-  const { total_locations } = useSelector((state) => state.table);
+
+  const { incidents, perc_stores_without_incidents, uncommunicated_stores } = useSelector((state) => state.table.data);
+  const { total_locations, location_tags } = useSelector((state) => state.table);
   const [locations, setLocations] = useState(null);
   const [storesComunication, setStoresComunication] = useState(null);
   const [storeIncidents, setStoreIncidents] = useState(null);
@@ -21,72 +21,94 @@ export const Top = () => {
     setLocations(total_locations);
   }, [uncommunicated_stores, incidents, perc_stores_without_incidents, total_locations]);
 
+
+  const widgetsData = [
+    ['Localizaciones', locations],
+    ['Tags Seleccionadas', <WidgetLabels />, 'Tags no seleccionadas'],
+    ['Store sin comunicacion', storesComunication],
+    ['Incidencias', storeIncidents],
+    ['Store sin incidencias', storesWithoutIncidents]
+  ]
+
+  const widgets = widgetsData.map((widget, index) => {
+    return (
+      <>
+        {widget[0] === 'Store sin comunicacion' || widget[0] === 'Incidencias'
+          ? < Widget key={index}>
+            <div className="store-with-dot">
+              {storeIncidents !== null || undefined ? (
+                <div className="top-label">
+                  <Dot
+                    style={{
+                      backgroundColor: "#F25A5A",
+                      width: "16px",
+                      height: "16px",
+                      borderRadius: "50%",
+                    }}
+                  />
+                  <span className="widget-number">{widget[1]}</span>
+                </div>
+              ) : (
+                <Dots steps={3} size={6} />
+              )}
+              <span className="widget-label">{widget[0]}</span>
+            </div >
+          </Widget>
+
+
+          : widget[0] === 'Tags Seleccionadas' ?
+            < Widget >
+              {location_tags.length !== 0
+                ?
+                <div className="widget-tags-top">
+                  {storeIncidents !== null || undefined ? (
+                    <span>{widget[1]}</span>
+                  ) : (
+                    <Dots steps={3} size={6} />
+                  )}
+                  <span className="widget-label">{widget[0]}</span>
+                </div>
+                :
+                <span className="widget-label">{widget[2]}</span>}
+
+            </Widget>
+
+
+            : widget[0] === 'Store sin incidencias'
+              ? < Widget >
+                <div className="widget-left">
+                  {storeIncidents !== null || undefined ? (
+                    <span className="widget-number">{`${widget[1]}%`}</span>
+                  ) : (
+                    <Dots steps={3} size={6} />
+                  )}
+                  <span className="widget-label">{widget[0]}</span>
+                </div>
+              </Widget> :
+
+
+
+              < Widget >
+                <div className="widget-left">
+                  {storeIncidents !== null || undefined ? (
+                    <span className="widget-number">{widget[1]}</span>
+                  ) : (
+                    <Dots steps={3} size={6} />
+                  )}
+                  <span className="widget-label">{widget[0]}</span>
+                </div>
+              </Widget>}
+      </>
+
+    )
+  })
+
+
   return (
-    <div className="top">
-      <Widget>
-        <div className="widget-left">
-          {locations !== null || undefined ? (
-            <span className="widget-number">{locations}</span>
-          ) : (
-            <Dots steps={3} size={6} />
-          )}
-          <span className="widget-label">Localizaciones</span>
-        </div>
-      </Widget>
-      <Widget>
-        <WidgetLabels />
-      </Widget>
-      <Widget>
-        <div className="store-with-dot">
-          {storesComunication !== null || undefined ? (
-            <div className="top-label">
-              <Dot
-                style={{
-                  backgroundColor: "#F25A5A",
-                  width: "16px",
-                  height: "16px",
-                  borderRadius: "50%",
-                }}
-              />
-              <span className="widget-number">{storesComunication}</span>
-            </div>
-          ) : (
-            <Dots steps={3} size={6} />
-          )}
-          <span className="widget-label">Store sin comunicación</span>
-        </div >
-      </Widget >
-      <Widget>
-        <div className="store-with-dot">
-          {storeIncidents !== null || undefined ? (
-            <div className="top-label">
-              <Dot
-                style={{
-                  backgroundColor: "#F25A5A",
-                  width: "16px",
-                  height: "16px",
-                  borderRadius: "50%",
-                }}
-              />
-              <span className="widget-number">{storeIncidents}</span>
-            </div>
-          ) : (
-            <Dots steps={3} size={6} />
-          )}
-          <span className="widget-label">Incidencias</span>
-        </div >
-      </Widget >
-      <Widget>
-        <div className="widget-left">
-          {storesWithoutIncidents !== null || undefined ? (
-            <span className="widget-number">{`${storesWithoutIncidents}%`}</span>
-          ) : (
-            <Dots steps={3} size={6} />
-          )
-          }
-          <span className="widget-label">Store con incidencias</span>
-        </div >
-      </Widget >
+    <div className="top-container">
+      <div className="top">
+        {widgets}
+      </div>
     </div >
-  );
-};
+  )
+}

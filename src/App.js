@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { api } from "./api/api";
 import "./App.css";
-import { Bottom } from "./pages/bottom/Bottom";
-import { Top } from "./pages/Top/Top";
+import { DashboardContainer } from "./components/grid-container/DashboardContainer";
 import { SET_TABLE, SET_LOCATIONS, SET_TAGS } from "./redux/tableSlice/TableSlice";
 
 function App() {
@@ -22,13 +21,9 @@ function App() {
       .then(({ total_locations }) => dispatch(SET_LOCATIONS(total_locations)));
   }, [dispatch]);
 
-
-
   return (
     <div className="App">
-      <Top />
-      <div className="line"> </div>
-      <Bottom />
+      <DashboardContainer />
     </div>
   );
 }

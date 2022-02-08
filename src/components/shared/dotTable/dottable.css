@@ -1,13 +1,24 @@
-.dot-table{
+.dot-table {
     width: 16px;
     height: 16px;
     border-radius: 50%;
     margin: auto;
 }
-.red{
+
+.red {
     background-color: #F25A5A;
 }
-.green{
-    background-color: #00CC87
-    ;
+
+.green {
+    background-color: #00CC87;
+}
+
+
+@media(max-width: 520px) {
+    .dot-table {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: auto;
+    }
 }
