@@ -14,6 +14,7 @@ export const Top = () => {
   const [storeIncidents, setStoreIncidents] = useState(null);
   const [storesWithoutIncidents, setStoresWithoutIncidents] = useState(null);
 
+
   useEffect(() => {
     setStoresComunication(uncommunicated_stores);
     setStoreIncidents(incidents);
@@ -24,7 +25,9 @@ export const Top = () => {
 
   const widgetsData = [
     ['Localizaciones', locations],
-    ['Tags Seleccionadas', <WidgetLabels />, 'Tags no seleccionadas'],
+
+    ['Tags Seleccionadas', <WidgetLabels loc_tags={location_tags} />, 'Tags no seleccionadas'],
+
     ['Store sin comunicacion', storesComunication],
     ['Incidencias', storeIncidents],
     ['Store sin incidencias', storesWithoutIncidents]
@@ -34,6 +37,7 @@ export const Top = () => {
     return (
       <>
         {widget[0] === 'Store sin comunicacion' || widget[0] === 'Incidencias'
+
           ? < Widget key={index}>
             <div className="store-with-dot">
               {storeIncidents !== null || undefined ? (
@@ -73,7 +77,6 @@ export const Top = () => {
 
             </Widget>
 
-
             : widget[0] === 'Store sin incidencias'
               ? < Widget >
                 <div className="widget-left">
@@ -85,8 +88,6 @@ export const Top = () => {
                   <span className="widget-label">{widget[0]}</span>
                 </div>
               </Widget> :
-
-
 
               < Widget >
                 <div className="widget-left">

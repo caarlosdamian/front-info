@@ -9,7 +9,7 @@ import { dummyData } from "../../utils/dummyData";
 import './dashboard.css'
 import { bottomTable } from "../../utils/bottomData";
 import { Top } from '../top/Top'
-import { rgb } from "chroma-js";
+
 
 
 const even = (n) => n % 2 === 0;
@@ -44,7 +44,8 @@ export const Dashboard = () => {
     const tableDataApi = R.map(table => R.values(table),
         dataSort.map(item => ({ ...item, 'a': '-', 'b': '-', 'c': '-', 'd': '-' })))
 
-    // const tableDataDummy = R.map(table => R.values(table), dummyData)
+    const tableDataDummy = R.map(table => R.values(table), dummyData)
+
     const headers = headersData.map(header => {
 
         return <div
@@ -57,7 +58,9 @@ export const Dashboard = () => {
         </div>
     })
 
-    const info = tableDataApi.map((item, i) => {
+
+    const info = tableDataDummy.map((item, i) => {
+
         return item.map((row, col) => {
             return (
                 <div className="table-info"
@@ -71,9 +74,11 @@ export const Dashboard = () => {
                         }}>
 
                         {row === true
-                            ? <DotTable className='red' />
+
+                            ? <DotTable className='green' />
                             : row === false
-                                ? <DotTable className='green' />
+                                ? <DotTable className='red' />
+
                                 : row.length !== 0
                                     ? row
                                     : '-'
@@ -135,7 +140,9 @@ export const Dashboard = () => {
                             ? <div className="bottom-grid-container">
 
                                 {
-                                    bottomTable(dummyData).map((column, i) => column.map((row, j) => {
+
+                                    bottomTable(table).map((column, i) => column.map((row, j) => {
+
                                         const colorValue = i === 2 && row !== '% Incidencias' && row.length !== 0
                                         return (
                                             <div
