@@ -24,7 +24,6 @@
   align-items: flex-start;
   justify-content: space-between;
   font-family: "SFProText-Regular";
-  /* height: 70px; */
 }
 
 .tag {
@@ -66,7 +65,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* flex-wrap: wrap; */
   height: 100%;
   width: 100%;
 }
@@ -93,7 +91,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* flex-wrap: wrap; */
     height: 90%;
     width: 90%;
   }

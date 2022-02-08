@@ -30,10 +30,6 @@ export const Top = () => {
     ['Incidencias', storeIncidents],
     ['Store sin incidencias', storesWithoutIncidents]
   ]
-
-
-
-
   const widgets = widgetsData.map((widget, index) => {
     return (
       <>
@@ -78,7 +74,6 @@ export const Top = () => {
 
             </Widget>
 
-
             : widget[0] === 'Store sin incidencias'
               ? < Widget >
                 <div className="widget-left">
@@ -90,8 +85,6 @@ export const Top = () => {
                   <span className="widget-label">{widget[0]}</span>
                 </div>
               </Widget> :
-
-
 
               < Widget >
                 <div className="widget-left">
