@@ -48,7 +48,8 @@ export const Top = () => {
             < Widget >
               {location_tags.length !== 0
                 ?
-                <div className="widget-tags-top">
+                <div className="widget-left">
+
                   {perc_stores_without_incidents !== null || undefined ? (
                     <div className="tags">
                       {widget[1]}
@@ -57,10 +58,10 @@ export const Top = () => {
                   ) : (
                     <Dots steps={3} size={6} />
                   )}
-                  <span className="widget-label">{widget[0]}</span>
+                  <span className="widget-label-tags">{widget[0]}</span>
                 </div>
                 :
-                <span className="widget-label">{widget[2]}</span>}
+                <span className="widget-label-tags">{widget[2]}</span>}
 
             </Widget>
 
@@ -90,7 +91,6 @@ export const Top = () => {
 
     )
   })
-
 
   return (
     <div className="top-container">
