@@ -135,7 +135,11 @@ export const Dashboard = () => {
                                                         row === '% Incidencias' ? 'table-data-bottom-headers' : 'table-data-bottom-headers2'
                                                 }>
                                                     {i === 2
-                                                        ? `${row}%`
+                                                        ? `${row === '% Incidencias'
+                                                            ? '% Incidencias'
+                                                            : row.length !== 0
+                                                                ? `${row}%`
+                                                                : '-'}`
                                                         : (i === 1 || i === 0) && row.length !== 0
                                                             ? row
                                                             : '-'}
